@@ -28,7 +28,7 @@ async def help(ctx):
         "\u001b[33m!help        \u001b[0m– Zeigt diese Liste an\n"
         "\n"
         "Movement Ressourcen:\n"
-        "\u001b[33m!bhop        \u001b[0m– Listet bugged FPS-Bereiche für Bhop auf\n"
+        "\u001b[33m!bhop        \u001b[0m– Listet bugged FPS-Bereiche für Bhops auf\n"
         "\u001b[33m!lurch       \u001b[0m– Verlinkt guten Lurch Guide\n"
         "\u001b[33m!mantlejump  \u001b[0m– Verlinkt guten Mantlejump Guide\n"
         "\u001b[33m!superglide  \u001b[0m– Verlinkt nützliche Superglide Ressourcen\n"
@@ -79,16 +79,22 @@ async def bhop(ctx):
     "\u001b[37m───────────────────────────────\u001b[0m\n"
     "```")
 
-# !launch
+# !launch - liste von launch optionen
 @bot.command()
 async def launch(ctx):
     await ctx.send("```ansi\n"
     "Nützliche \u001b[35mLaunch Optionen\u001b[0m:\n"
     "\u001b[37m──────────────────────────\u001b[0m\n"
-    "\u001b[35mcl_showpos 1 \u001b[0m       - Zeigt ingame nützliche Stats an (z.B. Velocity)\n"
-    "\u001b[35mcl_showfps 4 \u001b[0m       - Zeigt die FPS an\n"
-    "\u001b[35mcl_fovscale 1.7 \u001b[0m    - Stellt die FOV auf 120\n"
+    "\u001b[35mcl_showpos  1 \u001b[0m       - Zeigt ingame nützliche Stats an (z.B. Velocity)\n"
+    "\u001b[35mcl_showfps  4 \u001b[0m       - Zeigt die FPS an\n"
+    "\u001b[35mcl_fovscale 1.7 \u001b[0m     - Stellt die FOV auf 120\n"
     "\u001b[37m──────────────────────────\u001b[0m\n"
     "```")
+
+# !clear - cleart n + 1 der letzten nachrichten
+@bot.command()
+@commands.has_role("Koala")
+async def clear(ctx, amount: int):
+    await ctx.channel.purge(limit=amount + 1)
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
