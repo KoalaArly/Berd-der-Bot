@@ -23,7 +23,7 @@ async def on_ready():
 async def help(ctx):
     await ctx.send("```ansi\n"
         "\u001b[1;35mBernd's Funktionen\u001b[0m\n"
-        "\u001b[37m───────────────────────────────\u001b[0m\n"
+        "\u001b[37m────────────────────────────────\u001b[0m\n"
         "Bernd Basics:\n"
         "\u001b[33m!help        \u001b[0m– Zeigt diese Liste an\n"
         "\n"
@@ -31,10 +31,13 @@ async def help(ctx):
         "\u001b[33m!bhop        \u001b[0m– Listet bugged FPS-Bereiche für Bhop auf\n"
         "\u001b[33m!lurch       \u001b[0m– Verlinkt guten Lurch Guide\n"
         "\u001b[33m!mantlejump  \u001b[0m– Verlinkt guten Mantlejump Guide\n"
-        "\u001b[33m!superglide  \u001b[0m– Verlinkt nützliche Superglide-Ressourcen\n"
+        "\u001b[33m!superglide  \u001b[0m– Verlinkt nützliche Superglide Ressourcen\n"
         "\u001b[33m!wallzones   \u001b[0m– Verlinkt gutes Wallzone Video\n"
         "\u001b[33m!wiki        \u001b[0m– Verlinkt das Movement-Wiki\n"
-        "\u001b[37m───────────────────────────────\u001b[0m\n"
+        "\n"
+        "Apex Zeugs:\n"
+        "\u001b[33m!launch      \u001b[0m– Listet nützliche Launch Optionen\n"
+        "\u001b[37m────────────────────────────────\u001b[0m\n"
         "```"
 )
 
@@ -68,10 +71,24 @@ async def wallzones(ctx):
 async def bhop(ctx):
     await ctx.send("```ansi\n"
     "Diese \u001b[35mFPS-Bereiche\u001b[0m sind bugged:\n"
-    "\u001b[33m67 - 79 \u001b[0m\n"
-    "\u001b[33m141 - 155 \u001b[0m\n"
-    "\u001b[33m207 - 230 \u001b[0m\n"
-    "\u001b[33m275 - 300 \u001b[0m\n"
+    "\u001b[37m───────────────────────────────\u001b[0m\n"
+    "\u001b[35m 67 - 79 \u001b[0m\n"
+    "\u001b[35m141 - 155 \u001b[0m\n"
+    "\u001b[35m207 - 230 \u001b[0m\n"
+    "\u001b[35m275 - 300 \u001b[0m\n"
+    "\u001b[37m───────────────────────────────\u001b[0m\n"
+    "```")
+
+# !launch
+@bot.command()
+async def launch(ctx):
+    await ctx.send("```ansi\n"
+    "Nützliche \u001b[35mLaunch Optionen\u001b[0m:\n"
+    "\u001b[37m──────────────────────────\u001b[0m\n"
+    "\u001b[35mcl_showpos 1 \u001b[0m       - Zeigt ingame nützliche Stats an (z.B. Velocity)\n"
+    "\u001b[35mcl_showfps 4 \u001b[0m       - Zeigt die FPS an\n"
+    "\u001b[35mcl_fovscale 1.7 \u001b[0m    - Stellt die FOV auf 120\n"
+    "\u001b[37m──────────────────────────\u001b[0m\n"
     "```")
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
