@@ -18,6 +18,20 @@ bot = commands.Bot(command_prefix='!', intents=intents, help_command=None)
 async def on_ready():
     print(f"{bot.user.name} is starting")
 
+# added custom emoji bei neuem user join
+@bot.event
+async def on_message(msg):
+    if msg.author == bot.user:
+        return
+    
+    if msg.type == discord.MessageType.new_member:
+        emoji = discord.utils.get(msg.guild.emojis, name="pepeFlower")
+        if emoji:
+            await msg.add_reaction(emoji)
+    
+    await bot.process_commands(msg)
+        
+
 # !help - liste aller funktionen
 @bot.command()
 async def help(ctx):
@@ -29,7 +43,7 @@ async def help(ctx):
         "\n"
         "Movement Ressourcen:\n"
         "\u001b[33m!bhop        \u001b[0m– Listet bugged FPS-Bereiche für Bhops auf\n"
-        "\u001b[33m!lurch       \u001b[0m– Verlinkt guten Lurch Guide\n"
+        "\u001b[33m!lurch       \u001b[0m– Verlinkt nützliche Lurch Ressourcen\n"
         "\u001b[33m!mantlejump  \u001b[0m– Verlinkt guten Mantlejump Guide\n"
         "\u001b[33m!superglide  \u001b[0m– Verlinkt nützliche Superglide Ressourcen\n"
         "\u001b[33m!wallzones   \u001b[0m– Verlinkt gutes Wallzone Video\n"
@@ -59,7 +73,8 @@ async def mantlejump(ctx):
 # !lurch - link zum xzylas video
 @bot.command()
 async def lurch(ctx):
-    await ctx.send("Hier der Link zum Lurch Guide: \nGuide - https://www.youtube.com/watch?v=JonGQ6F_p6E")
+    await ctx.send("Hier der Link zum Lurch Guide: \nGuide - https://www.youtube.com/watch?v=JonGQ6F_p6E\n"
+                   "Trainer - https://lurch-trainer.web.app/trainer")
 
 # !wallzones - link zum eraiseddd video
 @bot.command()
