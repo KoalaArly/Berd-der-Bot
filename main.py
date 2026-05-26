@@ -42,6 +42,14 @@ async def on_message(msg):
             await msg.add_reaction(emoji)
     
     await bot.process_commands(msg)
+
+# added custom rolle bei neuem user join
+@bot.event
+async def on_member_join(member):
+    role = discord.utils.get(member.guild.roles, name="Movement Atze")
+
+    if role:
+        await member.add_roles(role)
         
 
 # !help - liste aller funktionen
