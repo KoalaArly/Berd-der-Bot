@@ -47,7 +47,7 @@ async def on_message(msg):
     # Honeypot-Check
     if msg.channel.id == 1522030924403839237:
         try:
-            await msg.author.ban(reason="honey-pot")
+            await msg.author.ban(reason="honey-pot", delete_message_seconds=86400)
             print(f"{msg.author} wurde gebannt (honey-pot).")
         except discord.Forbidden:
             print(f"{msg.author} konnte nicht gebannt werden (honey-pot).")
