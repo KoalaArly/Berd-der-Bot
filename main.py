@@ -30,19 +30,6 @@ async def on_ready():
     if channel:
         await channel.send("Bin wieder da, mein Akh.")
 
-# added custom emoji bei neuem user join
-@bot.event
-async def on_message(msg):
-    if msg.author == bot.user:
-        return
-    
-    if msg.type == discord.MessageType.new_member:
-        emoji = discord.utils.get(msg.guild.emojis, name="pepeFlower")
-        if emoji:
-            await msg.add_reaction(emoji)
-    
-    await bot.process_commands(msg)
-
 # added custom rolle bei neuem user join
 @bot.event
 async def on_member_join(member):
@@ -51,7 +38,33 @@ async def on_member_join(member):
     if role:
         await member.add_roles(role)
         
+# honey-pot auto ban und new member join emoji reaction
+@bot.event
+async def on_message(msg):
+    if msg.author == bot.user:
+        return
 
+    # Honeypot-Check
+    if msg.channel.id == 1522030924403839237:
+        try:
+            await msg.author.ban(reason="honey-pot")
+            print(f"{msg.author} wurde gebannt (honey-pot).")
+        except discord.Forbidden:
+            print(f"{msg.author} konnte nicht gebannt werden (honey-pot).")
+        try:
+            await msg.delete()
+        except discord.NotFound:
+            pass
+        return
+
+    # emoji bei neuem user join
+    if msg.type == discord.MessageType.new_member:
+        emoji = discord.utils.get(msg.guild.emojis, name="pepeFlower")
+        if emoji:
+            await msg.add_reaction(emoji)
+
+    await bot.process_commands(msg)
+            
 # !help - liste aller funktionen
 @bot.command()
 async def help(ctx):
@@ -60,7 +73,6 @@ async def help(ctx):
         "\u001b[37m────────────────────────────────\u001b[0m\n"
         "Bernd Basics:\n"
         "\u001b[33m!help        \u001b[0m– Zeigt diese Liste an\n"
-        "\u001b[33m!progress    \u001b[0m– Liste von zukünftigen Erweiterungen\n"
         "\n"
         "Movement Ressourcen:\n"
         "\u001b[33m!bhop        \u001b[0m– Listet bugged FPS-Bereiche für Bhops auf\n"
@@ -137,22 +149,6 @@ async def climbspace(ctx):
         "graphic_climb_space_with_zones_light.png"
     )
     await ctx.send(file=discord.File(file_path))
-
-# !progress - liste von zukünftigen erweiterungen
-@bot.command()
-async def progress(ctx):
-    await ctx.send("```ansi\n"
-    "\u001b[1;35mIn Bearbeitung\u001b[0m:\n"
-    "\u001b[37m──────────────────────────\u001b[0m\n"
-    ">>> \u001b[35mAllgemeines\u001b[0m <<<\n"
-    "- \u001b[33mÜberarbeitung einiger Guides\u001b[0m\n"
-    "- \u001b[33mVideo Clips/Grafiken zur Visualisierung\u001b[0m\n"
-    "\n"
-    ">>> \u001b[35mNeue Guides\u001b[0m <<<\n"
-    "- \u001b[33mBounce Chaining\u001b[0m\n"
-    "- \u001b[33mClimb L0ck\u001b[0m\n"
-    "\u001b[37m──────────────────────────\u001b[0m\n"
-    "```")
 
 #------------------------------ADMIN---------------------------------#
 # !clear - cleart n + 1 der letzten nachrichten
