@@ -22,7 +22,7 @@ async def on_ready():
 
     # custom status
     await bot.change_presence(
-        activity=discord.Game(name="!help - Liste aller Funktionen")
+        activity=discord.Game(name="!help - lists all features")
     )
 
     # bermd restart message
@@ -69,22 +69,22 @@ async def on_message(msg):
 @bot.command()
 async def help(ctx):
     await ctx.send("```ansi\n"
-        "\u001b[1;35mBernd's Funktionen\u001b[0m\n"
+        "\u001b[1;35mBernd's Features\u001b[0m\n"
         "\u001b[37m────────────────────────────────\u001b[0m\n"
         "Bernd Basics:\n"
-        "\u001b[33m!help        \u001b[0m– Zeigt diese Liste an\n"
+        "\u001b[33m!help        \u001b[0m– shows this overview\n"
         "\n"
-        "Movement Ressourcen:\n"
-        "\u001b[33m!bhop        \u001b[0m– Listet bugged FPS-Bereiche für Bhops auf\n"
-        "\u001b[33m!climbspace  \u001b[0m– Sendet die 'Climb Space'-Grafik\n"
-        "\u001b[33m!lurch       \u001b[0m– Verlinkt nützliche Lurch Ressourcen\n"
-        "\u001b[33m!mantlejump  \u001b[0m– Verlinkt guten Mantlejump Guide\n"
-        "\u001b[33m!superglide  \u001b[0m– Verlinkt nützliche Superglide Ressourcen\n"
-        "\u001b[33m!ubounce     \u001b[0m– Verlinkt gutes 'Climb Zone' Video\n"
-        "\u001b[33m!wiki        \u001b[0m– Verlinkt das Movement-Wiki\n"
+        "Movement Resources:\n"
+        "\u001b[33m!bhop        \u001b[0m– lists the bugged fps ranges for Bhops\n"
+        "\u001b[33m!climbspace  \u001b[0m– sends the 'Climb Space' graphic\n"
+        "\u001b[33m!lurch       \u001b[0m– links useful lurch ressources\n"
+        "\u001b[33m!mantlejump  \u001b[0m– links good Mantlejump guide\n"
+        "\u001b[33m!superglide  \u001b[0m– links useful Superglide ressources\n"
+        "\u001b[33m!ubounce     \u001b[0m– links god 'Climb Zone' video\n"
+        "\u001b[33m!wiki        \u001b[0m– links the movement wiki\n"
         "\n"
-        "Apex Zeugs:\n"
-        "\u001b[33m!launch      \u001b[0m– Listet nützliche Launch Optionen\n"
+        "Apex Stuff:\n"
+        "\u001b[33m!launch      \u001b[0m– lists useful launch options\n"
         "\u001b[37m────────────────────────────────\u001b[0m\n"
         "```"
 )
@@ -92,34 +92,35 @@ async def help(ctx):
 # !wiki - link zur apex movement wiki
 @bot.command()
 async def wiki(ctx):
-    await ctx.send("Hier der Link zur Movement Wiki: \nhttps://apexmovement.tech/wiki")
+    await ctx.send("link to the movement wiki: \nhttps://apexmovement.tech/wiki")
 
 # !superglide - link zum trainer und mokey video
 @bot.command()
 async def superglide(ctx):
-    await ctx.send("Hier der Link zum Superglide Trainer & Guide: \nTrainer - https://apexmovement.tech/superglidetrainer/ \nGuide - https://www.youtube.com/watch?v=_cP1YO5Idts")
+    await ctx.send("link to the superglide trainer & guide: \ntrainer - https://apexmovement.tech/superglidetrainer/ \nguide - https://www.youtube.com/watch?v=_cP1YO5Idts")
 
 # !mantlejump - link zum theeb video
 @bot.command()
 async def mantlejump(ctx):
-    await ctx.send("Hier der Link zum Mantlejump Guide: \nGuide - https://www.youtube.com/watch?v=69_lfGZz52Q")
+    await ctx.send("link to the mantlejump guide: \nguide - https://www.youtube.com/watch?v=69_lfGZz52Q")
 
 # !lurch - link zum xzylas video
 @bot.command()
 async def lurch(ctx):
-    await ctx.send("Hier der Link zum Lurch Guide: \nGuide - https://www.youtube.com/watch?v=JonGQ6F_p6E\n"
-                   "Trainer by LiTTle - https://lurch-trainer.web.app/trainer")
+    await ctx.send("link to a good lurch guide: \nguide - https://www.youtube.com/watch?v=JonGQ6F_p6E\n"
+                   "lurch trainer made by LiTTle - https://lurch-trainer.web.app/trainer")
 
 # !ubounce - link zum eraiseddd video
 @bot.command()
 async def ubounce(ctx):
-    await ctx.send("Hier der Link zu einem guten Guide: \nGuide - https://www.youtube.com/watch?v=RWEO8mERoCE")
+    await ctx.send("link to a good guide: \nguide - https://www.youtube.com/watch?v=RWEO8mERoCE")
 
 # !bhop - angabe der bugged fps-bereiche
 @bot.command()
 async def bhop(ctx):
     await ctx.send("```ansi\n"
     "Diese \u001b[35mFPS-Bereiche\u001b[0m sind bugged:\n"
+    "These \u001b[35mfps ranges\u001b[0m are bugged:\n"
     "\u001b[37m───────────────────────────────\u001b[0m\n"
     "\u001b[35m 67 - 79 \u001b[0m\n"
     "\u001b[35m141 - 155 \u001b[0m\n"
@@ -133,10 +134,11 @@ async def bhop(ctx):
 async def launch(ctx):
     await ctx.send("```ansi\n"
     "Nützliche \u001b[35mLaunch Optionen\u001b[0m:\n"
+    "useful \u001b[35mlaunch options\u001b[0m:\n"
     "\u001b[37m──────────────────────────\u001b[0m\n"
-    "\u001b[35mcl_showpos  1 \u001b[0m       - Zeigt ingame nützliche Stats an (z.B. Velocity)\n"
-    "\u001b[35mcl_showfps  4 \u001b[0m       - Zeigt die FPS an\n"
-    "\u001b[35mcl_fovscale 1.7 \u001b[0m     - Stellt die FOV auf 120\n"
+    "\u001b[35mcl_showpos  1 \u001b[0m       - shows useful ingame stats (like Velocity)\n"
+    "\u001b[35mcl_showfps  4 \u001b[0m       - shows your fps and more\n"
+    "\u001b[35mcl_fovscale 1.7 \u001b[0m     - sets fov to 120\n"
     "\u001b[37m──────────────────────────\u001b[0m\n"
     "```")
 
