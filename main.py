@@ -80,7 +80,7 @@ async def help(ctx):
         "\u001b[33m!lurch       \u001b[0m– links useful lurch resources\n"
         "\u001b[33m!mantlejump  \u001b[0m– links good Mantlejump guide\n"
         "\u001b[33m!superglide  \u001b[0m– links useful Superglide resources\n"
-        "\u001b[33m!ubounce     \u001b[0m– links god 'Climb Zone' video\n"
+        "\u001b[33m!ubounce     \u001b[0m– links good 'Climb Zone' video\n"
         "\u001b[33m!wiki        \u001b[0m– links the movement wiki\n"
         "\n"
         "Apex Stuff:\n"
@@ -102,18 +102,18 @@ async def superglide(ctx):
 # !mantlejump - link zum theeb video
 @bot.command()
 async def mantlejump(ctx):
-    await ctx.send("link to the mantlejump guide: \nguide - https://www.youtube.com/watch?v=69_lfGZz52Q")
+    await ctx.send("link to the mantlejump guide: \nhttps://www.youtube.com/watch?v=69_lfGZz52Q")
 
 # !lurch - link zum xzylas video
 @bot.command()
 async def lurch(ctx):
-    await ctx.send("link to a good lurch guide: \nguide - https://www.youtube.com/watch?v=JonGQ6F_p6E\n"
+    await ctx.send("link good lurch resources: \nguide - https://www.youtube.com/watch?v=JonGQ6F_p6E\n"
                    "lurch trainer made by LiTTle - https://lurch-trainer.web.app/trainer")
 
 # !ubounce - link zum eraiseddd video
 @bot.command()
 async def ubounce(ctx):
-    await ctx.send("link to a good guide: \nguide - https://www.youtube.com/watch?v=RWEO8mERoCE")
+    await ctx.send("link to a good guide: \nhttps://www.youtube.com/watch?v=RWEO8mERoCE")
 
 # !bhop - angabe der bugged fps-bereiche
 @bot.command()
