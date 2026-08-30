@@ -119,8 +119,8 @@ async def ubounce(ctx):
 @bot.command()
 async def bhop(ctx):
     await ctx.send("```ansi\n"
-    "Diese \u001b[35mFPS-Bereiche\u001b[0m sind bugged:\n"
-    "These \u001b[35mfps ranges\u001b[0m are bugged:\n"
+    "These \u001b[1mfps ranges\u001b[0m are \u001b[1;31mbugged:\n"
+    "Diese \u001b[1mFPS-Bereiche\u001b[0m sind \u001b[1;31mbugged:\n"
     "\u001b[37m───────────────────────────────\u001b[0m\n"
     "\u001b[35m 67 - 79 \u001b[0m\n"
     "\u001b[35m141 - 155 \u001b[0m\n"
@@ -133,8 +133,8 @@ async def bhop(ctx):
 @bot.command()
 async def launch(ctx):
     await ctx.send("```ansi\n"
-    "Nützliche \u001b[35mLaunch Optionen\u001b[0m:\n"
-    "useful \u001b[35mlaunch options\u001b[0m:\n"
+    "Useful \u001b[1mlaunch options\u001b[0m:\n"
+    "Nützliche \u001b[1mLaunch Optionen\u001b[0m:\n"
     "\u001b[37m──────────────────────────\u001b[0m\n"
     "\u001b[35mcl_showpos  1 \u001b[0m       - shows useful ingame stats (like Velocity)\n"
     "\u001b[35mcl_showfps  4 \u001b[0m       - shows your fps and more\n"
