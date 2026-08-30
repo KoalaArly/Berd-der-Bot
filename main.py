@@ -33,7 +33,7 @@ async def on_ready():
 # added custom rolle bei neuem user join
 @bot.event
 async def on_member_join(member):
-    role = discord.utils.get(member.guild.roles, name="Movement Atze")
+    role = discord.utils.get(member.guild.roles, name="Movement Twin")
 
     if role:
         await member.add_roles(role)
